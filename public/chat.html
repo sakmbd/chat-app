@@ -6,6 +6,7 @@
   <meta charset="utf-8">
   <title>Chat | ChatApp</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 
@@ -24,7 +25,10 @@
         <input name="message" type="text" placeholder="Message" autofocus autocomplete="off"/>
         <button>Send</button>
       </form>
-      <button id="send-location">Send location</button>
+      <label for="sendImage" class="imageLable">
+        <input type="button" value="Image" class="hidden-input-file"  />
+        <input id="sendImage" type="file" value="image"/>
+      </label>
     </div>
   </div>
 
@@ -36,6 +40,18 @@
       </div>
       <div class="message__body">
         <p>{{text}}</p>
+      </div>
+    </li>
+  </script>
+
+  <script id="img-template" type="text/template">
+    <li class="message">
+      <div class="message__title">
+        <h4>{{from}}</h4>
+        <span>{{createdAt}}</span>
+      </div>
+      <div class="message__body">
+        <a href="{{img}}" target="_blank"><img class="responsive" src="{{img}}"/></a>
       </div>
     </li>
   </script>
