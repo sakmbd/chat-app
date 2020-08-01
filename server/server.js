@@ -8,7 +8,7 @@ const {isRealString} = require('./utils/validation');
 const {Users} = require('./utils/users');
 
 const publicPath = path.join(__dirname, '../public');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 var app = express();
 var server = http.createServer(app);
 var io = socketIO(server);
@@ -48,7 +48,7 @@ io.on('connection', (socket) => {
     var user = users.getUser(socket.id);
 
     if (user) {
-      io.to(user.room).emit('newLocationMessage', generateLocationMessage(user.name, coords.latitude, coords.longitude));  
+      io.to(user.room).emit('newLocationMessage', generateLocationMessage(user.name, coords.latitude, coords.longitude));
     }
   });
 
