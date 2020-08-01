@@ -36,12 +36,18 @@ io.on('connection', (socket) => {
 
   socket.on('createMessage', (message, callback) => {
     var user = users.getUser(socket.id);
-
     if (user && isRealString(message.text)) {
       io.to(user.room).emit('newMessage', generateMessage(user.name, message.text));
     }
 
     callback();
+  });
+
+  socket.on('img', (imgData, callback) => {
+    var user = users.getUser(socket.id);
+    if (user) {
+      io.to(user.room).emit('newImg', generateMessage(user.name, imgData));
+    }
   });
 
   socket.on('createLocationMessage', (coords) => {

@@ -56,6 +56,20 @@ socket.on('newMessage', function (message) {
   scrollToBottom();
 });
 
+socket.on('newImg', function (message) {
+  var formattedTime = moment(message.createdAt).format('h:mm a');
+  var template = jQuery('#img-template').html();
+  var html = Mustache.to_html(template, {
+    img: message.text,
+    from: message.from,
+    createdAt: formattedTime
+  });
+
+  jQuery('#messages').append(html);
+  scrollToBottom();
+
+});
+
 socket.on('newLocationMessage', function (message) {
   var formattedTime = moment(message.createdAt).format('h:mm a');
   var template = jQuery('#location-message-template').html();
@@ -100,3 +114,21 @@ locationButton.on('click', function () {
     alert('Unable to fetch location.');
   });
 });
+
+document.getElementById('sendImage').addEventListener('change', function() {
+  if (this.files.length != 0) {
+      var file = this.files[0],
+          reader = new FileReader(),
+          color = "#000000";
+      if (!reader) {
+          that._displayNewMsg('system', '!your browser doesn\'t support fileReader', 'red');
+          this.value = '';
+          return;
+      };
+      reader.onload = function(e) {
+          this.value = '';
+          socket.emit('img', e.target.result);
+      };
+      reader.readAsDataURL(file);
+  };
+}, false);
