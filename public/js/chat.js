@@ -115,7 +115,7 @@ locationButton.on('click', function () {
   });
 });
 
-document.getElementById('sendImage').addEventListener('change', function() {
+document.getElementById('imageUpload').addEventListener('change', function() {
   if (this.files.length != 0) {
       var file = this.files[0],
           reader = new FileReader(),

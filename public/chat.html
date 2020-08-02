@@ -22,13 +22,16 @@
 
     <div class="chat__footer">
       <form id="message-form">
-        <input name="message" type="text" placeholder="Message" autofocus autocomplete="off"/>
-        <button>Send</button>
+        <input name="message" type="text" placeholder="Message" class="msg-input" autofocus autocomplete="off"/>
+        <div class="avatar-upload">
+          <div class="avatar-edit">
+              <input type='file' id="imageUpload" value="image" accept=".png, .jpg, .jpeg, .gif" />
+              <label for="imageUpload"></label>
+          </div>
+        </div>
+        <button title="send message"><i class="fa fa-paper-plane"></i></button>
       </form>
-      <label for="sendImage" class="imageLable">
-        <input type="button" value="Image" class="hidden-input-file"  />
-        <input id="sendImage" type="file" value="image"/>
-      </label>
+
     </div>
   </div>
 
