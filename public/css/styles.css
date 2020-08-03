@@ -103,7 +103,7 @@ button:disabled {
 .chat__footer,.chat__sidebar li {
   background: #e6eaee;
   /* padding: 10px; */
-  padding: 10px 5px 10px 1px;
+  padding: 5px;
 }
 
 .chat__sidebar h3 {

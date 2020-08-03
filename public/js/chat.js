@@ -116,6 +116,11 @@ locationButton.on('click', function () {
 });
 
 document.getElementById('imageUpload').addEventListener('change', function() {
+  if(!validateFile()) {
+    // if file is not valid stop execution of below code
+    return;
+  }
+
   if (this.files.length != 0) {
       var file = this.files[0],
           reader = new FileReader(),
@@ -132,3 +137,24 @@ document.getElementById('imageUpload').addEventListener('change', function() {
       reader.readAsDataURL(file);
   };
 }, false);
+
+// File extension validation
+function validateFile() {
+  var allowedExtension = ['jpeg', 'jpg', 'png', 'gif', 'JPG', 'JPEG'];
+  var fileExtension = document.getElementById('imageUpload').value.split('.').pop().toLowerCase();
+  var isValidFile = false;
+
+  for(var index in allowedExtension) {
+
+      if(fileExtension === allowedExtension[index]) {
+          isValidFile = true;
+          break;
+      }
+  }
+
+  if(!isValidFile) {
+    alert('You can send only images.');
+  }
+
+  return isValidFile;
+}
