@@ -231,11 +231,10 @@ button:disabled {
   }
   
   .chat__main {
-    height: 80vh;
+    height: 85vh;
   }
 
   .chat__footer {
-    /* flex-direction: column; */
     left: 0;
     bottom: 0;
     position: fixed;
@@ -243,7 +242,7 @@ button:disabled {
   }
 
   .chat__footer form {
-    margin-bottom: 10px;
+/*     margin-bottom: 10px; */
   }
 
   .chat__footer button {

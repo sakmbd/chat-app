@@ -1,5 +1,16 @@
 var socket = io();
 
+var $htmlOrBody = $('html, body'),
+    scrollTopPadding = 8,
+    scrollTopLast = 0;
+$('.msg-input').focus(function() {
+    scrollTopLast = $(window).scrollTop();
+    $htmlOrBody.scrollTop($(this).offset().top - scrollTopPadding);
+}).blur(function() {
+    // scroll back to position before textarea focus
+    $htmlOrBody.scrollTop(scrollTopLast);
+});
+
 function scrollToBottom () {
   // Selectors
   var messages = jQuery('#messages');
@@ -11,10 +22,9 @@ function scrollToBottom () {
   var newMessageHeight = newMessage.innerHeight();
   var lastMessageHeight = newMessage.prev().innerHeight();
 
-//   if (clientHeight + scrollTop + newMessageHeight + lastMessageHeight >= scrollHeight) {
-//     messages.scrollTop(scrollHeight);
-//   }
-  messages.scrollTop(scrollHeight);
+  if (clientHeight + scrollTop + newMessageHeight + lastMessageHeight >= scrollHeight) {
+    messages.scrollTop(scrollHeight);
+  }
 }
 
 socket.on('connect', function () {
