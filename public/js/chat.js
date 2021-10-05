@@ -11,10 +11,9 @@ function scrollToBottom () {
   var newMessageHeight = newMessage.innerHeight();
   var lastMessageHeight = newMessage.prev().innerHeight();
 
-//   if (clientHeight + scrollTop + newMessageHeight + lastMessageHeight >= scrollHeight) {
-//     messages.scrollTop(scrollHeight);
-//   }
-  messages.scrollTop(scrollHeight);
+  if (clientHeight + scrollTop + newMessageHeight + lastMessageHeight >= scrollHeight) {
+    messages.scrollTop(scrollHeight);
+  }
 }
 
 socket.on('connect', function () {
