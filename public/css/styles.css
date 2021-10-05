@@ -121,7 +121,7 @@ button:disabled {
 .chat__main {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 90vh;
   width: 100%;
 }
 
@@ -228,6 +228,10 @@ button:disabled {
 
   .chat__sidebar {
     display: none;
+  }
+  
+  .chat__main {
+    height: 80vh;
   }
 
   .chat__footer {
