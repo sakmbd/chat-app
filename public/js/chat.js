@@ -1,16 +1,5 @@
 var socket = io();
 
-var $htmlOrBody = $('html, body'),
-    scrollTopPadding = 8,
-    scrollTopLast = 0;
-$('.msg-input').focus(function() {
-    scrollTopLast = $(window).scrollTop();
-    $htmlOrBody.scrollTop($(this).offset().top - scrollTopPadding);
-}).blur(function() {
-    // scroll back to position before textarea focus
-    $htmlOrBody.scrollTop(scrollTopLast);
-});
-
 function scrollToBottom () {
   // Selectors
   var messages = jQuery('#messages');
