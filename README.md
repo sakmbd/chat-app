@@ -1,7 +1,7 @@
 # Node Chat App
 
 This is a nodejs chat app using socket.io reference by Udemy course it's for only practice purpose.
-I made it following this [Udemy](https://www.udemy.com/the-complete-nodejs-developer-course-2) course and added some features like photo or gif sharing. 
+I made it following this [Udemy](https://www.udemy.com/the-complete-nodejs-developer-course-2) course and added some features like Photo, Gif sharing. 
 A copy of the original source code can be found at [andrewjmead/node-course-2-chat-app](https://github.com/andrewjmead/node-course-2-chat-app).
 
 Libraries used:
